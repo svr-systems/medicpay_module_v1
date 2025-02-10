@@ -7,7 +7,7 @@ module.exports = defineConfig({
   pages: {
     index: {
       entry: "src/main.js",
-      title: "SVR Software",
+      title: "SVR SOFT",
     },
   },
 });
