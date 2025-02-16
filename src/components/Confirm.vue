@@ -10,7 +10,7 @@
             </v-icon>
           </v-col>
           <v-col cols="12">
-            <div class="title pt-2">
+            <div class="subtitle-1 pt-2">
               {{ msg }}
             </div>
           </v-col>
