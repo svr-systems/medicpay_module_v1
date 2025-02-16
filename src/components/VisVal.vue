@@ -32,7 +32,7 @@
 
 <script>
 export default {
-  props: ["val", "lab", "sub", "color", "bool", "num", "icon", "link"],
+  props: ["lab","val",  "sub", "color", "bool", "num", "icon", "link"],
   data() {
     return {
       value: null,

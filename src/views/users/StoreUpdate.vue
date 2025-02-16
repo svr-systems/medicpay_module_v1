@@ -34,8 +34,8 @@
                 <v-row dense>
                   <v-col cols="12" md="3">
                     <v-text-field
-                      v-model="item.name"
                       label="Nombre"
+                      v-model="item.name"
                       dense
                       outlined
                       type="text"
@@ -46,8 +46,8 @@
                   </v-col>
                   <v-col cols="12" md="3">
                     <v-text-field
-                      v-model="item.surname_p"
                       label="A. paterno"
+                      v-model="item.surname_p"
                       dense
                       outlined
                       type="text"
@@ -58,8 +58,8 @@
                   </v-col>
                   <v-col cols="12" md="3">
                     <v-text-field
-                      v-model="item.surname_m"
                       label="A. materno*"
+                      v-model="item.surname_m"
                       dense
                       outlined
                       type="text"
@@ -70,8 +70,8 @@
                   </v-col>
                   <v-col cols="12" md="3">
                     <v-file-input
-                      v-model="item.avatar_doc"
                       label="Fotografía*"
+                      v-model="item.avatar_doc"
                       dense
                       outlined
                       :rules="rules.img"
@@ -125,8 +125,8 @@
                 <v-row dense>
                   <v-col cols="12" md="3">
                     <v-text-field
-                      v-model="item.email"
                       label="E-mail"
+                      v-model="item.email"
                       dense
                       outlined
                       type="text"
@@ -138,8 +138,8 @@
                   </v-col>
                   <v-col cols="12" md="3">
                     <v-select
-                      v-model="item.role_id"
                       label="Rol"
+                      v-model="item.role_id"
                       dense
                       outlined
                       :rules="rules.rqd"

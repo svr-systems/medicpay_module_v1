@@ -1,4 +1,4 @@
-export const APP_VERSION = "1.25.0210";
+export const APP_VERSION = "1.25.0216";
 export const APP_NAME = "SVR-APP";
 
 const URL = "http://127.0.0.1:8000";
@@ -57,41 +57,41 @@ export const getDateTime = (sprDate = "-", sprBwn = " ", sprTime = ":") => {
 
 export const getRules = () => {
   return {
-    rqd: [(v) => !!v || "Campo requerido."],
+    rqd: [(v) => !!v || "Campo requerido"],
     txt_rqd: [
       (v) => !!v || "Campo requerido.",
-      (v) => (v && v.trim().length >= 2) || "Mínimo 2 caracteres.",
+      (v) => (v && v.trim().length >= 2) || "Mínimo 2 caracteres",
     ],
     txt: [
       (v) => {
-        if (v) return (v && v.length >= 2) || "Mínimo 2 caracteres.";
+        if (v) return (v && v.length >= 2) || "Mínimo 2 caracteres";
         else return true;
       },
     ],
     email_rqd: [
       (v) => !!v || "Campo requerido.",
-      (v) => (v && v.length <= 65) || "Máximo 65 caracteres.",
-      (v) => /.+@.+\..+/.test(v) || "Formato invalido.",
+      (v) => (v && v.length <= 65) || "Máximo 65 caracteres",
+      (v) => /.+@.+\..+/.test(v) || "Formato invalido",
     ],
     email: [
       (v) => {
-        if (v) return (v && v.length <= 65) || "Máximo 65 caracteres.";
+        if (v) return (v && v.length <= 65) || "Máximo 65 caracteres";
         else return true;
       },
       (v) => {
-        if (v) return /.+@.+\..+/.test(v) || "Formato invalido.";
+        if (v) return /.+@.+\..+/.test(v) || "Formato invalido";
         else return true;
       },
     ],
     password_rqd: [
       (v) => !!v || "Campo requerido.",
-      (v) => (v && v.length >= 8) || "Mínimo 8 caracteres.",
-      (v) => (v && v.length <= 15) || "Máximo 15 caracteres.",
-      (v) => /(?=.*[A-Z])/.test(v) || "Al menos una mayúscula.",
-      (v) => /(?=.*[a-z])/.test(v) || "Al menos una minúscula.",
-      (v) => /(?=.*\d)/.test(v) || "Al menos un número.",
+      (v) => (v && v.length >= 8) || "Mínimo 8 caracteres",
+      (v) => (v && v.length <= 15) || "Máximo 15 caracteres",
+      (v) => /(?=.*[A-Z])/.test(v) || "Al menos una mayúscula",
+      (v) => /(?=.*[a-z])/.test(v) || "Al menos una minúscula",
+      (v) => /(?=.*\d)/.test(v) || "Al menos un número",
       (v) =>
-        /([!@$%*])/.test(v) || "Al menos un caractere especial (! @ $ % *).",
+        /([!@$%*])/.test(v) || "Al menos un caractere especial (! @ $ % *)",
     ],
     doc_rqd: [
       (v) => !!v || "Campo requerido.",
@@ -121,17 +121,27 @@ export const getRules = () => {
     ],
     fiscal_code_rqd: [
       (v) => !!v || "Campo requerido.",
-      (v) => (v && v.length <= 13) || "Máximo 13 caracteres.",
-      (v) => /^[A-Za-zñÑ&]{3,4}\d{6}\w{3}$/.test(v) || "Formato invalido.",
+      (v) => (v && v.length <= 13) || "Máximo 13 caracteres",
+      (v) => /^[A-Za-zñÑ&]{3,4}\d{6}\w{3}$/.test(v) || "Formato invalido",
     ],
     fiscal_code: [
       (v) => {
-        if (v) return (v && v.length <= 13) || "Máximo 13 caracteres.";
+        if (v) return (v && v.length <= 13) || "Máximo 13 caracteres";
         else return true;
       },
       (v) => {
         if (v)
-          return /^[A-Za-zñÑ&]{3,4}\d{6}\w{3}$/.test(v) || "Formato invalido.";
+          return /^[A-Za-zñÑ&]{3,4}\d{6}\w{3}$/.test(v) || "Formato invalido";
+        else return true;
+      },
+    ],
+    zip_rqd: [
+      (v) => !!v || "Campo requerido.",
+      (v) => (v && v.trim().length == 5) || "Ingresar 5 caracteres",
+    ],
+    zip: [
+      (v) => {
+        if (v) return (v && v.length == 5) || "Ingresar 5 caracteres";
         else return true;
       },
     ],
@@ -206,4 +216,9 @@ export const getAmountFormat = (v) => {
     style: "currency",
     currency: "USD",
   });
+};
+
+export const getPercentFormat = (v) => {
+  v = parseInt(v);
+  return v == null || v == 0 ? "-" : v + "%";
 };

@@ -234,13 +234,15 @@ export default {
         value: "role.name",
       },
       {
-        value: "action",
         text: "",
+        value: "action",
         filterable: false,
         sortable: false,
         width: "60",
       },
     ];
+
+    this.getItems();
   },
 };
 </script>

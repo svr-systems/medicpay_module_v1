@@ -88,16 +88,16 @@
             <v-card-text>
               <v-row dense>
                 <v-col cols="12" md="3">
-                  <VisVal :val="item.name" lab="Nombre" />
+                  <VisVal lab="Nombre" :val="item.name" />
                 </v-col>
                 <v-col cols="12" md="3">
-                  <VisVal :val="item.surname_p" lab="A. paterno" />
+                  <VisVal lab="A. paterno" :val="item.surname_p" />
                 </v-col>
                 <v-col cols="12" md="3">
-                  <VisVal :val="item.surname_m" lab="A. materno" />
+                  <VisVal lab="A. materno" :val="item.surname_m" />
                 </v-col>
                 <v-col cols="12" md="3">
-                  <VisDoc :val="item.avatar_b64" lab="Fotografía" img />
+                  <VisDoc lab="Fotografía" :val="item.avatar_b64" img />
                 </v-col>
               </v-row>
             </v-card-text>
@@ -116,10 +116,10 @@
             <v-card-text>
               <v-row dense>
                 <v-col cols="12" md="3">
-                  <VisVal :val="item.email" lab="E-mail" />
+                  <VisVal lab="E-mail" :val="item.email" />
                 </v-col>
                 <v-col cols="12" md="3">
-                  <VisVal :val="item.role.name" lab="Rol" />
+                  <VisVal lab="Rol" :val="item.role.name" />
                 </v-col>
               </v-row>
             </v-card-text>
@@ -187,8 +187,8 @@
             <v-row dense>
               <v-col cols="12">
                 <InpPassword
-                  :model.sync="password_data.password"
                   label="Contraseña"
+                  :model.sync="password_data.password"
                   :rules="rules.password_rqd"
                   counter
                 />
@@ -249,12 +249,12 @@ export default {
       ldg: true,
       item: null,
       reg_dlg: false,
-      rules: getRules(),
       //DIALOGS
       password_data: null,
       password_dlg: false,
       password_dlg_ldg: false,
       //OTHERS
+      rules: getRules(),
     };
   },
   methods: {
@@ -364,7 +364,6 @@ export default {
     },
   },
   mounted() {
-    console.log(this.id);
     this.getItem();
   },
 };

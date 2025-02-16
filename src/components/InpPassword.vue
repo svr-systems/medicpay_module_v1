@@ -32,7 +32,7 @@
 
 <script>
 export default {
-  props: ["model", "label", "rules", "disabled", "counter"],
+  props: ["label", "model", "rules", "disabled", "counter"],
   data() {
     return {
       isDisabled: false,
