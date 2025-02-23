@@ -1,26 +1,28 @@
 <template>
   <div>
     <div v-if="lab_prop" class="text-caption font-weight-bold" v-text="lab" />
-    <div v-if="!bool_prop" class="text-description">
-      <span v-if="!color_prop">
-        <v-icon v-if="icon_prop" small> mdi-{{ icon }} </v-icon>
-        <v-btn v-if="link_prop" icon x-small :href="link" target="_blank">
-          <v-icon x-small> mdi-open-in-new</v-icon>
-        </v-btn>
-        {{ value }}
-      </span>
-      <v-chip v-else x-small dark :color="color">
-        <v-icon v-if="icon_prop" small> mdi-{{ icon }} </v-icon>
-        <v-btn v-if="link_prop" icon x-small :href="link" target="_blank">
-          <v-icon x-small> mdi-open-in-new</v-icon>
-        </v-btn>
-        {{ value }}
-      </v-chip>
-    </div>
-    <div v-else>
-      <v-icon small :color="value ? 'info' : ''">
-        mdi-checkbox-blank-circle{{ value ? "" : "-outline" }}
-      </v-icon>
+    <div v-if="!noval_prop">
+      <div v-if="!bool_prop" class="text-description">
+        <span v-if="!color_prop">
+          <v-icon v-if="icon_prop" small> mdi-{{ icon }} </v-icon>
+          <v-btn v-if="link_prop" icon x-small :href="link" target="_blank">
+            <v-icon x-small> mdi-open-in-new</v-icon>
+          </v-btn>
+          {{ value }}
+        </span>
+        <v-chip v-else x-small dark :color="color">
+          <v-icon v-if="icon_prop" small> mdi-{{ icon }} </v-icon>
+          <v-btn v-if="link_prop" icon x-small :href="link" target="_blank">
+            <v-icon x-small> mdi-open-in-new</v-icon>
+          </v-btn>
+          {{ value }}
+        </v-chip>
+      </div>
+      <div v-else>
+        <v-icon small :color="value ? 'info' : ''">
+          mdi-checkbox-blank-circle{{ value ? "" : "-outline" }}
+        </v-icon>
+      </div>
     </div>
     <div v-if="sub_prop" class="text-caption">
       <small>
@@ -32,7 +34,7 @@
 
 <script>
 export default {
-  props: ["lab","val",  "sub", "color", "bool", "num", "icon", "link"],
+  props: ["val", "lab", "sub", "color", "bool", "num", "icon", "link", "noval"],
   data() {
     return {
       value: null,
@@ -42,6 +44,7 @@ export default {
       bool_prop: false,
       icon_prop: false,
       link_prop: false,
+      noval_prop: false,
     };
   },
 
@@ -62,6 +65,7 @@ export default {
     this.color_prop = typeof this.color != "undefined";
     this.icon_prop = typeof this.icon != "undefined";
     this.link_prop = typeof this.link != "undefined";
+    this.noval_prop = typeof this.noval != "undefined";
   },
 };
 </script>

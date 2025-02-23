@@ -1,4 +1,4 @@
-export const APP_VERSION = "1.25.0216";
+export const APP_VERSION = "1.25.0222";
 export const APP_NAME = "SVR-APP";
 
 const URL = "http://127.0.0.1:8000";
@@ -137,11 +137,21 @@ export const getRules = () => {
     ],
     zip_rqd: [
       (v) => !!v || "Campo requerido.",
-      (v) => (v && v.trim().length == 5) || "Ingresar 5 caracteres",
+      (v) => /^\d{5}$/.test(v) || "Ingresar 5 dígitos",
     ],
     zip: [
       (v) => {
-        if (v) return (v && v.length == 5) || "Ingresar 5 caracteres";
+        if (v) return /^\d{5}$/.test(v) || "Ingresar 5 dígitos";
+        else return true;
+      },
+    ],
+    phone_rqd: [
+      (v) => !!v || "Campo requerido.",
+      (v) => /^\d{10}$/.test(v) || "Ingresar 10 dígitos",
+    ],
+    phone: [
+      (v) => {
+        if (v) return /^\d{10}$/.test(v) || "Ingresar 10 dígitos";
         else return true;
       },
     ],

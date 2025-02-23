@@ -226,8 +226,8 @@ import Axios from "axios";
 import BtnBack from "@/components/BtnBack.vue";
 import CardTitle from "@/components/CardTitle.vue";
 import VisVal from "@/components/VisVal.vue";
-import VisDoc from "@/components/VisDoc.vue";
 import DlgReg from "@/components/DlgReg.vue";
+import VisDoc from "@/components/VisDoc.vue";
 import InpPassword from "@/components/InpPassword.vue";
 
 export default {
@@ -235,8 +235,8 @@ export default {
     BtnBack,
     CardTitle,
     VisVal,
-    VisDoc,
     DlgReg,
+    VisDoc,
     InpPassword,
   },
   data() {

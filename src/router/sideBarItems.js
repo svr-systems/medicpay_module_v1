@@ -1,5 +1,4 @@
 import Auth from "./middleware/Auth";
-import UsrSuperAdmin from "./middleware/UsrSuperAdmin";
 import UsrAdmin from "./middleware/UsrAdmin";
 // import UsrUser from "./middleware/UsrUser";
 
@@ -8,16 +7,16 @@ export const getSideBarItems = () => {
     {
       links: [
         {
-          link: "home",
           title: "Inicio",
+          link: "home",
           icon: "mdi-home",
           show: Auth(),
         },
         {
-          link: "users",
           title: "Usuarios",
+          link: "users",
           icon: "mdi-account-multiple",
-          show: UsrSuperAdmin() || UsrAdmin(),
+          show: UsrAdmin(),
         },
       ],
     },
@@ -25,10 +24,10 @@ export const getSideBarItems = () => {
     // {
     //   links: [
     //     {
-    //       link: "users.profile",
     //       title: "Mi perfil",
+    //       link: "users.profile",
     //       icon: "mdi-card-account-details",
-    //       show: UsrAdmin() || UsrUser(),
+    //       show: UsrUser(),
     //     },
     //   ],
     // },

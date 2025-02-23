@@ -12,7 +12,7 @@
 import { getBlob } from "@/general";
 
 export default {
-  props: ["val", "lab", "icon", "size"],
+  props: ["lab", "val", "icon", "size"],
   data() {
     return {
       doc_obj: null,

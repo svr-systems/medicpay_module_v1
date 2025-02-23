@@ -25,7 +25,7 @@
                   dense
                   outlined
                   type="text"
-                  :rules="rules.email"
+                  :rules="rules.email_rqd"
                   maxlength="50"
                   prepend-icon="mdi-at"
                 />
@@ -34,7 +34,7 @@
                 <InpPassword
                   :model.sync="item.password"
                   label="Contraseña"
-                  :rules="rules.required"
+                  :rules="rules.rqd"
                 />
               </v-col>
               <v-col cols="12">

@@ -30,17 +30,20 @@
         <v-row dense>
           <v-col cols="6">
             <VisVal
+              lab="Creación"
               :val="item.created_by.email"
               :sub="item.created_at"
-              lab="Creación"
             />
           </v-col>
           <v-col cols="6">
             <VisVal
+              lab="Últ. edición"
               :val="item.updated_by.email"
               :sub="item.updated_at"
-              lab="Últ. edición"
             />
+          </v-col>
+          <v-col v-if="item.email_verified_at" cols="6">
+            <VisVal lab="Verif." noval :sub="item.email_verified_at" />
           </v-col>
         </v-row>
       </v-card-text>

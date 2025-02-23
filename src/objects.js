@@ -1,7 +1,7 @@
 export const getUserObj = () => {
   return {
     id: null,
-    active: null,
+    active: true,
     name: null,
     surname_p: null,
     surname_m: null,
