@@ -34,18 +34,18 @@
                   <v-col cols="12" md="4">
                     <VisVal
                       lab="Médico"
-                      :val="item.doctor.user.full_name"
+                      :val="item.doctor.full_name"
                       :sub="item.doctor.uiid"
                     />
                   </v-col>
                   <v-col cols="12" md="4">
                     <VisVal
                       lab="Paciente"
-                      :val="item.patient.user.full_name"
+                      :val="item.patient.full_name"
                       :sub="
                         item.patient.uiid +
                         ' | Tel. ' +
-                        item.patient.user.movil_phone
+                        item.patient.movil_phone
                       "
                     />
                   </v-col>
@@ -78,7 +78,7 @@
                   <v-col cols="12" md="4">
                     <v-text-field
                       label="E-mail del paciente"
-                      v-model="item.patient.user.email"
+                      v-model="item.patient.email"
                       dense
                       outlined
                       type="text"
@@ -268,7 +268,13 @@
           </v-col>
           <v-col cols="12">
             <div class="text-right">
-              <v-btn block small color="success" @click.prevent="update">
+              <v-btn
+                block
+                small
+                color="success"
+                :loading="ldg"
+                @click.prevent="update"
+              >
                 Aceptar
                 <v-icon small right> mdi-account-cash </v-icon>
               </v-btn>
@@ -288,6 +294,7 @@ import {
   getErr,
   getRules,
   getObj,
+  getFormData,
   getAmountFormat,
 } from "@/general";
 import Axios from "axios";
@@ -361,7 +368,7 @@ export default {
 
           if (!this.item.charged_at) {
             if (!this.item.patient.fiscal_name) {
-              this.item.fiscal_name = this.item.patient.user.full_name;
+              this.item.fiscal_name = this.item.patient.full_name;
             }
           }
 
@@ -385,13 +392,13 @@ export default {
 
               Axios.post(
                 URL_API + "/" + this.route,
-                obj,
-                getHdrs(this.auth.token)
+                getFormData(obj),
+                getHdrs(this.auth.token, true)
               )
                 .then((rsp) => {
                   rsp = getRsp(rsp);
                   this.$root.$alert("success", rsp.msg);
-                  // this.$router.push({ name: this.route });
+                  this.$router.push({ name: this.route });
                   this.ldg = false;
                 })
                 .catch((err) => {
