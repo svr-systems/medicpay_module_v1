@@ -1,6 +1,5 @@
 import Auth from "./middleware/Auth";
-import UsrAdmin from "./middleware/UsrAdmin";
-// import UsrUser from "./middleware/UsrUser";
+import UsrModule from "./middleware/UsrModule";
 
 export const getSideBarItems = () => {
   const side_bar_items = [
@@ -13,25 +12,13 @@ export const getSideBarItems = () => {
           show: Auth(),
         },
         {
-          title: "Usuarios",
-          link: "users",
-          icon: "mdi-account-multiple",
-          show: UsrAdmin(),
+          title: "Consultas",
+          link: "module/consultations",
+          icon: "mdi-medical-bag",
+          show: UsrModule(),
         },
       ],
     },
-    { divider: true },
-    // {
-    //   links: [
-    //     {
-    //       title: "Mi perfil",
-    //       link: "users.profile",
-    //       icon: "mdi-card-account-details",
-    //       show: UsrUser(),
-    //     },
-    //   ],
-    // },
-    { divider: true },
   ];
 
   return side_bar_items;

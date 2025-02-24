@@ -1,9 +1,8 @@
 import store from "@/store";
 
-export default function UsrSystem(next = null) {
+export default function UsrModule(next = null) {
   let auth = store.getters.getAuth;
-  const condition =
-    auth && (auth.user.role_id == 1 || auth.user.role_id == 2) ? true : false;
+  const condition = auth && auth.user.role_id == 4 ? true : false;
 
   if (!next) {
     return condition;

@@ -1,50 +1,18 @@
 import Auth from "./middleware/Auth";
 import Login from "./middleware/Login";
-import UsrSystem from "./middleware/UsrSystem";
+import UsrModule from "./middleware/UsrModule";
 
 const routes = [
-  //users
+  //module
   {
-    path: "/usuarios",
-    name: "users",
-    component: () => import("@/views/users/Index.vue"),
+    path: "/modulo/consultas",
+    name: "module/consultations",
+    component: () => import("@/views/module/Consultations.vue"),
     meta: {
-      title: "Usuarios",
-      icon: "mdi-account-multiple",
-      middleware: UsrSystem,
+      title: "Consultas",
+      icon: "mdi-medical-bag",
+      middleware: UsrModule,
     },
-  },
-  {
-    path: "/usuarios/agregar",
-    name: "users.store",
-    component: () => import("@/views/users/StoreUpdate.vue"),
-    meta: {
-      title: "Usuario | Agregar",
-      icon: "mdi-account",
-      middleware: UsrSystem,
-    },
-  },
-  {
-    path: "/usuarios/:id",
-    name: "users.show",
-    component: () => import("@/views/users/Show.vue"),
-    meta: {
-      title: "Usuario",
-      icon: "mdi-account",
-      middleware: UsrSystem,
-    },
-    props: true,
-  },
-  {
-    path: "/usuarios/:id/editar",
-    name: "users.update",
-    component: () => import("@/views/users/StoreUpdate.vue"),
-    meta: {
-      title: "Usuario | Editar",
-      icon: "mdi-account",
-      middleware: UsrSystem,
-    },
-    props: true,
   },
   //general
   {
