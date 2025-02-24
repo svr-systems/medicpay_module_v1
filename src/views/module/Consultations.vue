@@ -38,10 +38,17 @@
             <template v-slot:item.action="{ item }">
               <div class="text-right">
                 <v-tooltip left>
-                  <!-- :to="{ name: route + '.show', params: { id:
-                  $window.btoa(item.id) }, }" -->
                   <template v-slot:activator="{ on }">
-                    <v-btn v-on="on" icon small color="warning">
+                    <v-btn
+                      v-on="on"
+                      icon
+                      small
+                      color="warning"
+                      :to="{
+                        name: route + '/update',
+                        params: { id: $window.btoa(item.id) },
+                      }"
+                    >
                       <v-icon small> mdi-account-cash </v-icon>
                     </v-btn>
                   </template>
@@ -105,7 +112,7 @@ export default {
       },
       {
         text: "Folio",
-        value: "folio",
+        value: "uiid",
       },
       {
         text: "F. registro",

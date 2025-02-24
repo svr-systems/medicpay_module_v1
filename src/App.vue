@@ -2,17 +2,13 @@
   <v-app>
     <Alert ref="alert" />
     <Confirm ref="confirm" />
-    <SideBar v-if="$store.getters.getAuth" :drawer.sync="drawer" />
     <v-app-bar v-if="$store.getters.getAuth" app dense dark>
-      <v-app-bar-nav-icon
-        v-if="$store.getters.getAuth"
-        @click.prevent="drawer = true"
-      />
       <v-toolbar-title>
         <span class="overline">{{ app_name }}</span>
       </v-toolbar-title>
       <v-spacer />
       <BtnTheme />
+      <BtnLogout />
     </v-app-bar>
     <v-main>
       <v-container>
@@ -24,13 +20,13 @@
 
 <script>
 import { APP_NAME } from "@/general";
-import SideBar from "@/components/SideBar.vue";
 import BtnTheme from "@/components/BtnTheme.vue";
+import BtnLogout from "@/components/BtnLogout.vue";
 
 export default {
   components: {
-    SideBar,
     BtnTheme,
+    BtnLogout,
   },
   data() {
     return {

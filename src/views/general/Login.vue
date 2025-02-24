@@ -101,7 +101,7 @@ export default {
           .then((rsp) => {
             rsp = getRsp(rsp);
             this.$store.dispatch("loginAction", rsp.data.auth);
-            this.$router.push({ name: "home" });
+            this.$router.push({ name: "module/consultations" });
             this.ldg = false;
           })
           .catch((err) => {

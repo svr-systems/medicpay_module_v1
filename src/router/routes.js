@@ -14,6 +14,17 @@ const routes = [
       middleware: UsrModule,
     },
   },
+  {
+    path: "/modulo/consultas/:id",
+    name: "module/consultations/update",
+    component: () => import("@/views/module/ConsultationsUpdate.vue"),
+    meta: {
+      title: "Consulta",
+      icon: "mdi-medical-bag",
+      middleware: UsrModule,
+    },
+    props: true,
+  },
   //general
   {
     path: "/",
