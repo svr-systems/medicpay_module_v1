@@ -219,7 +219,7 @@
                       </v-col>
                       <v-col cols="12" md="6">
                         <v-autocomplete
-                          label="Regimen Fiscal"
+                          label="Régimen Fiscal"
                           v-model="item.fiscal_regime_id"
                           dense
                           outlined
