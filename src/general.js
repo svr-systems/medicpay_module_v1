@@ -1,8 +1,8 @@
-export const APP_VERSION = "1.25.0305";
+export const APP_VERSION = "1.25.0414";
 export const APP_NAME = "MEDICPAY";
 
-const URL = "https://solmetec.mx/app";
-// const URL = "http://127.0.0.1:8000";
+const URL = "http://127.0.0.1:8000";
+// const URL = "https://solmetec.mx/app";
 export const URL_API = URL + "/api";
 
 export const getHdrs = (token = null, form_data = false) => {
